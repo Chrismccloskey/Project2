@@ -4,68 +4,81 @@
 <head>
 	<title>Prisoner of War</title>
 	<script type="text/javascript">
-		var favoritenumber = 18;
-		
-		function btn_North_click() {
-			var a = 1881;
-			var b = "You go North";
-			step1(a);
-			alert("done with btn_hello_click");
-		}
-		
-		function step1(messege) {
-			alert(a);
-			alert(b);
-			alert(messege);
-		}
-		function btn_South_click() {
-			var a = 1881;
-			var b = "You go South";
-			step1(a);
-			alert("done with btn_hello_click");
-		}
-		
-		function step1(messege) {
-			alert(a);
-			alert(b);
-			alert(messege);
-		}
-		function btn_East_click() {
-			var a = 1881;
-			var b = "You go East";
-			step1(a);
-			alert("done with btn_hello_click");
-		}
-		
-		function step1(messege) {
-			alert(a);
-			alert(b);
-			alert(messege);
-		}
-		function btn_West_click() {
-			var a = 1881;
-			var b = "You go West";
-			step1(a);
-			alert("done with btn_hello_click");
-		}
-		
-		function step1(messege) {
-			alert(a);
-			alert(b);
-			alert(messege);
-		}
+	var score = 0;
+	var North = false;
+	var South = false;
+	var East = false;
+	var West = false;
+	function btn_North_click(num) {
+			if (num === 1){
+				var msg = "There is a locked metal gate here."
+				updateText(msg);
+					if (North === false) {
+					  score = score + 5;
+				North = true;
+				}
+			}	
+	}
+	function btn_South_click(num) {
+			if (num === 2){
+				var msg = "There is a damp mat there, most likely your bed."
+				updateText(msg);
+					if (South === false) {
+					  score = score + 5;
+				South = true;	
+				}
+			}
+	}
+	function btn_East_click(num) {
+			if (num === 3){
+				var msg = "Thats a wall."
+				updateText(msg);
+					if (East === false) {
+					  score = score + 5;
+				East = true;	
+				}
+			}
+	}
+	function btn_West_click(num) {
+			if (num === 4){
+				var msg = "Thats a wall, with a small hole in it."
+				updateText(msg);
+					if (West === false) {
+					  score = score + 5;
+				West = true;	
+				}
+			}
+	}
+		function updateText(msg){
+			var ta = document.getElementById("taGame");
+			ta.value = msg + "\n" + ta.value
+			}
+	function btn_Score_click(){
+		alert (score);
+	}
 	</script>
+	<body>
+		<h1>Prisoner of War</h1>
+		<br>
+		<textarea id="taGame" rows="10" cols="50">
+You awake in a dark, damp cell.
+		</textarea>
+		<br>
 	<input type="button"
 		   value="North"
-		   onclick="btn_North_click();">
+		   onclick="btn_North_click(1);">
 	<input type="button"
 		   value="South"
-		   onclick="btn_South_click();">
+		   onclick="btn_South_click(2);">
 	<input type="button"
 		   value="East"
-		   onclick="btn_East_click();">
+		   onclick="btn_East_click(3);">
 	<input type="button"
 		   value="West"
-		   onclick="btn_West_click();">
+		   onclick="btn_West_click(4);">
+	<input type="button"
+		   value="Score"
+		   onclick="btn_Score_click(5);">
 
+<a href="mailto:christopher.mccloskey1@marist.edu">My email.</a>		   
 </html>
